@@ -1,0 +1,27 @@
+# Maintainer: Sampson Crowley < sampsonsprojects@gmail.com >
+# Original Maintainer: carstene1ns <arch carsten-teibes de> - http://git.io/ctPKG
+# Contributor: Sean Bartell <wingedtachikoma@gmail.com>
+# Contributor: Christoph 'delmonico' Neuroth <delmonico@gmx.net>
+# Contributor: Eric Forgeot < http://ifiction.free.fr >
+
+_gemname=fxruby
+pkgname=ruby-$_gemname
+pkgver=1.6.40
+pkgrel=2
+pkgdesc="The Ruby binding to the FOX GUI toolkit."
+arch=('i686' 'x86_64')
+url="http://www.fxruby.org/"
+license=('LGPL')
+depends=("fox" "ruby")
+options=(!emptydirs)
+source=("https://rubygems.org/downloads/$_gemname-$pkgver.gem")
+noextract=("$_gemname-$pkgver.gem")
+sha256sums=('8576a901f04beec98ef54dba40c4d2e61a1a33518ab0abddafcffd47cdf9b9f3')
+
+package() {
+  local _gemdir="$(ruby -e'puts Gem.default_dir')"
+
+  gem install --ignore-dependencies --no-user-install -i "$pkgdir/$_gemdir" \
+    -n "$pkgdir/usr/bin" $_gemname-$pkgver.gem
+  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+}

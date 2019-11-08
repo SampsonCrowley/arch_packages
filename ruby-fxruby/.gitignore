@@ -1,0 +1,4 @@
+fxruby-*.tgz
+src/
+pkg
+*.pkg.tar*
