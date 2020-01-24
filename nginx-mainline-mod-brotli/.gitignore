@@ -1,0 +1,5 @@
+*.tar.gz
+*.tar.gz.asc
+src/
+pkg
+*.pkg.tar*
