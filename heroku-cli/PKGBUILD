@@ -26,4 +26,7 @@ package() {
 
   # npm makes some directories world writable
   find "$pkgdir/usr" -type d -exec chmod 755 '{}' +
+
+  find "$pkgdir" -name package.json -print0 | xargs -r -0 sed -i '/_where/d'
+  sed -i "/$(echo $srcdir | sed 's_/_\\/_g')/d" "$pkgdir/usr/lib/node_modules/heroku/package.json"
 }
