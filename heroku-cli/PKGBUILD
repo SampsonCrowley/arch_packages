@@ -20,7 +20,7 @@ noextract=("heroku-$pkgver.tgz")
 options=('!strip')
 
 package() {
-  npm install -g --no-progress --user root --prefix "$pkgdir/usr" heroku-$pkgver.tgz
+  npm install -g --no-progress --user root --prefix "$pkgdir/usr" --cache "$srcdir/npm-cache" heroku-$pkgver.tgz
   mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
   ln -s "../../../lib/node_modules/heroku/LICENSE" "$pkgdir/usr/share/licenses/$pkgname"
 
