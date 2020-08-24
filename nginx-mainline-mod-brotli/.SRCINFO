@@ -1,21 +1,21 @@
 pkgbase = nginx-mainline-mod-brotli
 	pkgdesc = Brotli compression filter module for mainline nginx
-	pkgver = 0.1.2
-	pkgrel = 17
+	pkgver = 1.0.0rc
+	pkgrel = 2
 	epoch = 1
-	url = https://github.com/eustas/ngx_brotli
+	url = https://github.com/google/ngx_brotli
 	arch = i686
 	arch = x86_64
 	license = CUSTOM
 	depends = nginx-mainline
 	depends = brotli
-	source = https://nginx.org/download/nginx-1.17.9.tar.gz
-	source = https://nginx.org/download/nginx-1.17.9.tar.gz.asc
-	source = https://github.com/eustas/ngx_brotli/archive/v0.1.2/ngx_brotli-0.1.2.tar.gz
+	source = https://nginx.org/download/nginx-1.19.2.tar.gz
+	source = https://nginx.org/download/nginx-1.19.2.tar.gz.asc
+	source = https://github.com/google/ngx_brotli/archive/v1.0.0rc/ngx_brotli-1.0.0rc.tar.gz
 	validpgpkeys = B0F4253373F8F6F510D42178520A9993A1C052F8
-	sha256sums = 7dd65d405c753c41b7fdab9415cfb4bdbaf093ec6d9f7432072d52cb7bcbb689
+	sha256sums = 7c1f7bb13e79433ee930c597d272a64bc6e30c356a48524f38fd34fa88d62473
 	sha256sums = SKIP
-	sha256sums = 309af9e96c10e80f1884acea96379980979581adc287ce338f084607bd48c185
+	sha256sums = c85cdcfd76703c95aa4204ee4c2e619aa5b075cac18f428202f65552104add3b
 
 pkgname = nginx-mainline-mod-brotli
 
