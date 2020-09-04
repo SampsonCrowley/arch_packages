@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 VERSION=7.42.13
+RELEASE=2
 SCRIPT_DIR=$(dirname "$0")
 SCRIPT_DIR=$(cd $SCRIPT_DIR; pwd)
 SRC_DIR=$(cd "$SCRIPT_DIR/../"; pwd)
@@ -16,6 +17,7 @@ pushd "$SRC_DIR"
   CURRENT=$(cat ./PKGBUILD | grep pkgver= | sed "s/pkgver=//")
 
   sed -i "s/^pkgver=.*/pkgver=$VERSION/" ./PKGBUILD
+  sed -i "s/^pkgrel=.*/pkgrel=$RELEASE/" ./PKGBUILD
 
   if [ ! "$VERSION" = "$CURRENT" ]; then
     rm -f heroku-v*-linux*.tar.xz
@@ -32,7 +34,7 @@ pushd "$SRC_DIR"
       sed -i "/oclif\/plugin-update/d" ./package.json
       npm install
       rm -rf ./dist
-      npx oclif-dev pack --targets="linux-arm,linux-x64"
+      npx oclif-dev pack --targets="linux-x64"
 
       pushd dist/heroku-v$VERSION/
 
