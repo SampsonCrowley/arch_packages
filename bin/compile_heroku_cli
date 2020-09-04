@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+VERSION=7.42.13
+SCRIPT_DIR=$(dirname "$0")
+SCRIPT_DIR=$(cd $SCRIPT_DIR; pwd)
+SRC_DIR=$(cd "$SCRIPT_DIR/../"; pwd)
+SRC_DIR+="/heroku-cli"
+TMP_DIR="$SRC_DIR/tmp"
+
+set -e
+
+pushd "$SRC_DIR"
+
+  if [ ! -d ./cli-source ]; then git clone https://github.com/heroku/cli.git cli-source; fi
+  rm -rf src/ pkg/
+
+  CURRENT=$(cat ./PKGBUILD | grep pkgver= | sed "s/pkgver=//")
+
+  sed -i "s/^pkgver=.*/pkgver=$VERSION/" ./PKGBUILD
+
+  if [ ! "$VERSION" = "$CURRENT" ]; then
+    rm -f heroku-v*-linux*.tar.xz
+  fi
+
+  pushd cli-source
+
+    git fetch origin -t "v$VERSION"
+    git checkout "v$VERSION"
+    yarn
+
+    pushd packages/cli
+
+      sed -i "/oclif\/plugin-update/d" ./package.json
+      npm install
+      rm -rf ./dist
+      npx oclif-dev pack --targets="linux-arm,linux-x64"
+
+      pushd dist/heroku-v$VERSION/
+
+        gsutil -h "Cache-Control:public, max-age=31536000" cp ./heroku-v7.42.13-linux-*.tar.xz gs://arch-package-files
+
+      popd
+
+    popd
+
+  popd
+
+  updpkgsums
+
+  makepkg -f
+popd
