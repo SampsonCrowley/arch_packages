@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 VERSION=7.42.13
-RELEASE=2
+RELEASE=4
 SCRIPT_DIR=$(dirname "$0")
 SCRIPT_DIR=$(cd $SCRIPT_DIR; pwd)
 SRC_DIR=$(cd "$SCRIPT_DIR/../"; pwd)
@@ -38,7 +38,7 @@ pushd "$SRC_DIR"
 
       pushd dist/heroku-v$VERSION/
 
-        gsutil -h "Cache-Control:public, max-age=31536000" cp ./heroku-v7.42.13-linux-*.tar.xz gs://arch-package-files
+        gsutil -h "Cache-Control:public, max-age=31536000" cp ./heroku-v$VERSION-linux-x64.tar.xz gs://arch-package-files/heroku-cli-v$VERSION-$RELEASE.tar.xz
 
       popd
 
