@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-VERSION=7.42.13
-RELEASE=4
+VERSION=7.43.0
+RELEASE=1
 SCRIPT_DIR=$(dirname "$0")
 SCRIPT_DIR=$(cd $SCRIPT_DIR; pwd)
 SRC_DIR=$(cd "$SCRIPT_DIR/../"; pwd)
@@ -14,14 +14,8 @@ pushd "$SRC_DIR"
   if [ ! -d ./cli-source ]; then git clone https://github.com/heroku/cli.git cli-source; fi
   rm -rf src/ pkg/
 
-  CURRENT=$(cat ./PKGBUILD | grep pkgver= | sed "s/pkgver=//")
-
   sed -i "s/^pkgver=.*/pkgver=$VERSION/" ./PKGBUILD
   sed -i "s/^pkgrel=.*/pkgrel=$RELEASE/" ./PKGBUILD
-
-  if [ ! "$VERSION" = "$CURRENT" ]; then
-    rm -f heroku-v*-linux*.tar.xz
-  fi
 
   pushd cli-source
 
@@ -48,5 +42,5 @@ pushd "$SRC_DIR"
 
   updpkgsums
 
-  makepkg -f
+  makepkg
 popd
