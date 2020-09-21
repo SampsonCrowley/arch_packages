@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-VERSION=7.43.0
+VERSION=7.43.1
 RELEASE=1
 SCRIPT_DIR=$(dirname "$0")
 SCRIPT_DIR=$(cd $SCRIPT_DIR; pwd)
@@ -13,6 +13,7 @@ pushd "$SRC_DIR"
 
   if [ ! -d ./cli-source ]; then git clone https://github.com/heroku/cli.git cli-source; fi
   rm -rf src/ pkg/
+  rm -f ./heroku-cli-*.tar*
 
   sed -i "s/^pkgver=.*/pkgver=$VERSION/" ./PKGBUILD
   sed -i "s/^pkgrel=.*/pkgrel=$RELEASE/" ./PKGBUILD
