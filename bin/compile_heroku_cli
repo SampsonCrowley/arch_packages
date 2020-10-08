@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
-heroku-cli-bin/host/bin/compile
+if [[ $# -eq 0]]; then
+  .heroku-cli-bin-host/bin/compile --update-main
+else
+  .heroku-cli-bin-host/bin/compile "$@"
+fi

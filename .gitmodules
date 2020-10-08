@@ -1,3 +1,3 @@
-[submodule "heroku-cli-bin/host"]
-	path = heroku-cli-bin/host
+[submodule ".heroku-cli-bin-host"]
+	path = .heroku-cli-bin-host
 	url = git@github.com:SampsonCrowley/heroku-cli-bin.git
