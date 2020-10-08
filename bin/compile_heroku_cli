@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+heroku-cli-bin/host/bin/compile
