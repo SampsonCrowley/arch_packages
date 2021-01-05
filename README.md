@@ -1,6 +1,6 @@
 Package wrapper for various packages I contribute to. Individual instructions below
 
-Subtree maintenance is managed with a `aurpublish`
+Subtree maintenance is managed with `aurpublish`
 
 For usage: `aurpublish --help` or `aurpublish -h`
 
@@ -17,7 +17,7 @@ heroku-cli-bin is downloaded, compiled and hosted through a github tag using a s
     ```bash
     bin/compile_heroku_cli
     ```
-    - Check sums, pkgver and pkgrel will all be automatically updated in `heroku-cli-bin/PKGBUILD`
+    - Checksums, pkgver and pkgrel will all be automatically updated in `heroku-cli-bin/PKGBUILD`
     - verify that `makepkg` succeeds
 4. test by installing locally
     ```bash
