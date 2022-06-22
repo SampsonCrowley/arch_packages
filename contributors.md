@@ -1,0 +1,5 @@
+[Michael Herold <https://github.com/michaelherold>](https://github.com/michaelherold)
+[ahmubashir <https://github.com/amubashir>](https://github.com/amubashir)
+[Joey Dumont <https://github.com/joeydumont>](https://github.com/joeydumont)
+[Luc Khai Hai <https://github.com/lkh42t>](https://github.com/lkh42t)
+[Daniel Pereira <https://github.com/kriansa>](https://github.com/kriansa)
