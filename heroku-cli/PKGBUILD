@@ -5,7 +5,7 @@
 pkgname=heroku-cli
 pkgver=7.62.0
 pkgrel=1
-_commit_id="13db7c5e684c5c44682a5115b9a29632a46fb69c"
+_commit_id="7ae31bbc9408d3e94952e6507df4633aa6d5adb0"
 pkgdesc="CLI to manage Heroku apps and services with forced auto-update removed"
 arch=('any')
 url="https://devcenter.heroku.com/articles/heroku-cli"
